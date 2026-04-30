@@ -3,7 +3,8 @@ import subprocess
 import os
 import sys
 
-INPUT_FILE = "songs_101_150.json"
+# put files with song names in INPUT_FILE
+INPUT_FILE = "music.txt"
 OUTPUT_DIR = "music"
 FAILED_FILE = "failed.txt"
 
