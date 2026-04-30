@@ -5,9 +5,9 @@ class BasicSpider(scrapy.Spider):
     name = 'watchlist'
 
     cookies = {
-        'connect.sid': 's%3ABu5ha3UyTyaWKuc-fqx4QWYH_VnuX0nZ.gxhh%2FavNo%2F0qnU3ZLanhYYMr28Jd0ffw%2B5AK2rXTBjY',
-        'userSettings': '{%22auto_play%22:%221%22%2C%22auto_next%22:1%2C%22auto_skip_intro%22:%220%22%2C%22show_comments_at_home%22:1%2C%22enable_dub%22:0}',
-    }
+        # some sites might need cookies
+        # aniwatch (rip) needed one
+        }
 
     # Mapping based on your screenshots
     # 3 = Plan to Watch, 5 = Completed
