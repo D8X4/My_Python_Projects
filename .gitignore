@@ -13,3 +13,5 @@ __pycache__/
 *.vault
 counts.json
 roblox_lookups.txt
+discord_bot_things/.envbackup
+discord_bot_things/.env
