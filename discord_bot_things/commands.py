@@ -1,0 +1,23 @@
+bot_commands=[
+'$ping > pings everyone',
+'$funny > says random phrases',
+'$echo (words) > insert words',
+'$status (@user) tells user status',
+'$timeout (@user) timeout',
+'$rps > rock papers scissors)',
+'$whois (@user) > tells username',
+'$botping > dw about this)',
+'$getava (@user) > gives avatar pic',
+'$messagech (message) > talk as the robit',
+'$dmuser (@user) > dm user as robit (Only i can use this hehe)',
+'$spotify (optional: @user) > returns current song you or someone is playing',
+'$catpic > sends random picture of cat',
+'$animegif > sends a random gif from a random anime',
+'$roblox (robloxuser) > gives info on roblox user',
+'$potd > sends picture of the day from nasa',
+'$randnasa > sends random nasa picture',
+'$kick (@user) > kicks user',
+'$ban (@user)',
+'$scam (debug for leaderboard)',
+'$leaderboard (shows top 10 messengers)'
+]

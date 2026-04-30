@@ -1,0 +1,15 @@
+applemusic_scraper.py
+CodeVideoRenderer_projects/
+cryptography_projects/
+encrypted_vault/
+encryption_text/
+scapy_network_projects/
+session.json
+songs_101_150.json
+songs.json
+venv/
+__pycache__/
+*.pyc
+*.vault
+counts.json
+roblox_lookups.txt
