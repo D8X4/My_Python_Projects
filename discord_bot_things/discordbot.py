@@ -10,24 +10,25 @@ import os
 import json
 
 message_counts = {}
+# just edit this potion to add your token
+# personally i had it in a .env and encrypted it for fun with fernet
+# just add an .env somewhere with your bot token heres an example
+DISCORD_TOKEN=(insert token)
+#with open(', "rb") as f:
+#    key = f.read()
 
-with open(r'/home/d8x4/PyProjects/cryptography_projects/fernet_projects/key.key', "rb") as f:
-    key = f.read()
+#fernet = Fernet(key)
 
-fernet = Fernet(key)
+#with open(r"", "rb") as f:
+#    decrypted = fernet.decrypt(f.read()).decode()
 
-with open(r"/home/d8x4/PyProjects/cryptography_projects/fernet_projects/env.encrypted", "rb") as f:
-    decrypted = fernet.decrypt(f.read()).decode()
-
-for line in decrypted.splitlines():
-    if "=" in line:
-        k, v = line.split("=", 1)
-        os.environ[k.strip()] = v.strip()
+#for line in decrypted.splitlines():
+#    if "=" in line:
+#        k, v = line.split("=", 1)
+#        os.environ[k.strip()] = v.strip()
 
 TOKEN = os.environ["DISCORD_TOKEN"]
 creatorid = 1254305475898638338
-friend1 = 1180992330975690802
-NASA_KEY = 'rAoiBnL9flmY0Vh4KuWQPACzJB8oKcVnyfrtVKcK'
 
 if TOKEN is None:
     print("Error: TOKEN not found. Check your .env file name and variable name.")
@@ -54,7 +55,7 @@ else:
             return
         print(f'[{message.channel}] {message.author}: {message.content}')
         if bot.user.mentioned_in(message):
-            await message.channel.send(f"fuck you {message.author.mention}")
+            await message.channel.send(f"freak you {message.author.mention}")
         guild_id = str(message.guild.id) if message.guild else 'dm'
         user_id = str(message.author.id)
         if guild_id not in message_counts:
@@ -175,19 +176,19 @@ else:
         choice = random.choice(choices)
         await ctx.send(f'my choice was {choice} yours was {arg}')
         if choice == arg:
-            await ctx.send('we tied what the fuck')
+            await ctx.send('we tied')
         elif choice == 'rock' and arg == 'paper':
-            await ctx.send('i fucking lost.')
+            await ctx.send('i lost.')
         elif choice == 'rock' and arg == 'scissors':
-            await ctx.send('i fucking win!')
+            await ctx.send('i win!')
         elif choice == 'paper' and arg == 'scissors':
-            await ctx.send('i fucking lost.')
+            await ctx.send('I lost.')
         elif choice == 'paper' and arg == 'rock':
-            await ctx.send('i fucking win!')
+            await ctx.send('i win!')
         elif choice == 'scissors' and arg == 'rock':
-            await ctx.send('i fucking lost.')
+            await ctx.send('i lost.')
         elif choice == 'scissors' and arg == 'paper':
-            await ctx.send('i fucking win!')
+            await ctx.send('i win!')
 
     @bot.command()
     async def whois(ctx, member: discord.Member):
@@ -269,22 +270,25 @@ else:
                 else:
                     await ctx.send(f"roblox api said no: {response.status}")
 
-    @bot.command()
-    async def potd(ctx):
-        async with aiohttp.ClientSession() as session:
-            async with session.get(f'https://api.nasa.gov/planetary/apod?api_key={NASA_KEY}') as response:
-                data = await response.json()
-                await ctx.send(data['title'])
-                await ctx.send(data['url'])
+# add your nasa api key to the .env and uncomment to use
+# example for the .env:
+# NASA_KEY=(key)
+#    @bot.command()
+#    async def potd(ctx):
+#        async with aiohttp.ClientSession() as session:
+#            async with session.get(f'https://api.nasa.gov/planetary/apod?api_key={NASA_KEY}') as response:
+#                data = await response.json()
+#                await ctx.send(data['title'])
+#                await ctx.send(data['url'])
 
-    @bot.command()
-    async def randnasa(ctx):
-        async with aiohttp.ClientSession() as session:
-            async with session.get(f'https://api.nasa.gov/planetary/apod?api_key={NASA_KEY}&count=1') as response:
-                data = await response.json()
-                picture = data[0]
-                await ctx.send(picture['title'])
-                await ctx.send(picture['url'])
+#    @bot.command()
+#    async def randnasa(ctx):
+#        async with aiohttp.ClientSession() as session:
+#           async with session.get(f'https://api.nasa.gov/planetary/apod?api_key={NASA_KEY}&count=1') as response:
+#                data = await response.json()
+#                picture = data[0]
+#                await ctx.send(picture['title'])
+#                await ctx.send(picture['url'])
 
     @roblox.error
     async def roblox_error(ctx, error):
