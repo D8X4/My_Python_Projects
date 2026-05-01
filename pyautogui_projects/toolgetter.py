@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+#used to get the speed coil and cloud on the game mic up can be non 18+ 
 import pyautogui as p
 import time
 
