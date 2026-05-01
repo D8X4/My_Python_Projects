@@ -28,6 +28,7 @@ DISCORD_TOKEN=(insert token)
 #        os.environ[k.strip()] = v.strip()
 
 TOKEN = os.environ["DISCORD_TOKEN"]
+# my discord id you can remove idc
 creatorid = 1254305475898638338
 
 if TOKEN is None:
@@ -37,6 +38,7 @@ else:
     intents.message_content = True
     intents.members = True
     intents.presences = True
+    # change command prefix to wtv you want
     bot = commands.Bot(command_prefix='$', intents=intents)
 
     @bot.event
@@ -67,6 +69,7 @@ else:
             json.dump(message_counts, f)
         await bot.process_commands(message)
 
+    # need to run $scan first
     @bot.command()
     async def leaderboard(ctx):
         guild_id = str(ctx.guild.id)
@@ -81,6 +84,7 @@ else:
             result += f"{i}. {name} - {count} messages\n"
         await ctx.send(result)
 
+    # scan channels for leaderboard
     @bot.command()
     async def scan(ctx):
         if ctx.author.id != creatorid:
@@ -110,15 +114,6 @@ else:
     @bot.command()
     async def ping(ctx):
         await ctx.send('@everyone')
-
-    @bot.command()
-    async def dmuser(ctx, member: discord.Member, *args):
-        if ctx.author.id == creatorid or friend1:
-            messages = ' '.join(args)
-            await ctx.send(f'dmed with {member.mention}')
-            await member.send(messages)
-        else:
-            await ctx.send('you arent d8 sorry bud')
 
     @bot.command()
     async def echo(ctx, *args):
@@ -203,14 +198,16 @@ else:
         commands_text = '\n'.join(bot_commands)
         await ctx.send(f' commands ; {commands_text}')
 
+    #for the command you need to enter a channel id into channel
     @bot.command()
     async def messagech(ctx, *args):
         try:
-            channel = bot.get_channel(1401001060482547905)
+            # insert channel id here
+            channel = bot.get_channel(11111111111111111111)
             arguments = ' '.join(args)
             await channel.send(arguments)
         except:
-            ctx.message(f'{ctx.author.mention} the shit failed')
+            ctx.message(f'{ctx.author.mention} it failed')
 
     @bot.command()
     async def spotify(ctx, member: discord.Member = None):
@@ -259,10 +256,10 @@ else:
                         data = await response.json()
                         user = data['data'][0]
                         await ctx.send(f"roblox user; {user['name']}")
-                        await ctx.send(f"loser ass display name; {user['displayName']}")
+                        await ctx.send(f"display name; {user['displayName']}")
                         await ctx.send(f"id; {user['id']}")
                         await ctx.send(f"verified = {user['hasVerifiedBadge']}")
-                        await ctx.send(f"needs 30 second cool down for next lookup (stupid ass api)")
+                        await ctx.send(f"needs 30 second cool down for next lookup")
                         with open('roblox_lookups.txt', 'a') as f:
                             f.write(f"user: {user['name']} | display: {user['displayName']} | id: {user['id']} | verified: {user['hasVerifiedBadge']}\n")
                     except Exception as e:
